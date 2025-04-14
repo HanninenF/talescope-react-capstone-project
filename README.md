@@ -1,4 +1,4 @@
-# talescope react capstone project
+# TaleScope 📖🔭 react capstone project
 
 _A project built with Vite, React, TypeScript, and SASS._
 
@@ -74,4 +74,5 @@ Developed by **Fredrik Hänninen**
 ✅ **Full error handling** is implemented for API requests.
 
 ---
+
 ---

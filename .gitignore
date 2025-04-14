@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 # Exclude API keys
 src/keys/apiKey.ts
+instructions.md
