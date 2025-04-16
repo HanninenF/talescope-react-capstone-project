@@ -3,19 +3,20 @@
 ### 📅 Datum: 2025-04-14
 
 🖌️ **Design / UI**  
-_Inget arbete inom denna kategori idag._
+_Inget arbete inom detta delområde idag._
 
 💻 **Teknisk implementation**  
 _Startade upp projektstrukturen för Talescope i React med TypeScript och Sass._
 
 🔧 **Funktionalitet**  
-_Inget arbete inom denna kategori idag._
+_Inget arbete inom detta delområde idag._
 
 🐞 **Buggar / Problem**  
 _Ingen konkret bugg idag, men testade git rm --cached för en .md-fil som inte fanns – lärde mig att Git ignorerar korrekt om filen inte redan är trackad._
 
 💭 **Reflektion / Lärdomar**  
-_Bra att förbereda tomma filer för att snabbt kunna växla till implementation._
+_Bra att förbereda tomma filer för att snabbt kunna växla till implementation.
+Gick igenom och planerade hur projektets struktur ska se ut, inklusive mappar för components/, features/, hooks/, services/, types/ och styles/. Tänkte igenom vilka komponenter som ska finnas i varje del och hur de kan återanvändas. Den här strukturen kommer att hjälpa mig att jobba mer effektivt och få bättre överblick när implementationen drar igång._
 
 ✅ **Nästa steg**  
 _Designa i Figma_

@@ -1,0 +1,20 @@
+header {
+  border-bottom: 2px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: anchor-center;
+  padding: 1em 2em 1em 1em;
+  nav {
+    font-size: 1.3em;
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        padding: 0 1em;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
