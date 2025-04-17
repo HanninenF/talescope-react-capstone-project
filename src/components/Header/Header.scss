@@ -1,16 +1,19 @@
+@use "../../styles/variables" as var;
+
 header {
+  background: var.$colorPrimary;
   border-bottom: 2px solid red;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: anchor-center;
-  padding: 1em 2em 1em 1em;
+  padding: var.$spacingMd var.$spacingXxl var.$spacingMd var.$spacingLg;
   nav {
-    font-size: 1.3em;
+    font-size: var.$fontSizeLg;
     ul {
       display: flex;
       list-style: none;
       li {
-        padding: 0 1em;
+        padding: 0 var.$spacingMd;
         a {
           text-decoration: none;
         }

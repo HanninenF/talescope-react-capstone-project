@@ -21,6 +21,8 @@ Gick igenom och planerade hur projektets struktur ska se ut, inklusive mappar f�
 ✅ **Nästa steg**  
 _Designa i Figma_
 
+---
+
 ### 📅 Datum: 2025-04-16
 
 🖌️ **Design / UI**  
@@ -42,6 +44,8 @@ _Känns bra att få en tydlig struktur på plats direkt – det gör det lättar
 ✅ **Nästa steg**  
 _Sätta upp variables.scss med färgtema, spacing och typsnitt samt skapa routes.tsx och koppla ihop routing i App.tsx._
 
+---
+
 ### 📅 Datum: 2025-04-17
 
 🖌️ **Design / UI**  
@@ -61,6 +65,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-18
 
@@ -82,6 +88,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-19
 
 🖌️ **Design / UI**  
@@ -101,6 +109,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-20
 
@@ -122,6 +132,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-21
 
 🖌️ **Design / UI**  
@@ -141,6 +153,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-22
 
@@ -162,6 +176,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-23
 
 🖌️ **Design / UI**  
@@ -181,6 +197,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-24
 
@@ -202,6 +220,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-25
 
 🖌️ **Design / UI**  
@@ -221,6 +241,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-26
 
@@ -242,6 +264,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-27
 
 🖌️ **Design / UI**  
@@ -261,6 +285,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-28
 
@@ -282,6 +308,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-04-29
 
 🖌️ **Design / UI**  
@@ -301,6 +329,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-04-30
 
@@ -322,6 +352,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-01
 
 🖌️ **Design / UI**  
@@ -341,6 +373,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-02
 
@@ -362,6 +396,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-03
 
 🖌️ **Design / UI**  
@@ -381,6 +417,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-04
 
@@ -402,6 +440,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-05
 
 🖌️ **Design / UI**  
@@ -421,6 +461,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-06
 
@@ -442,6 +484,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-07
 
 🖌️ **Design / UI**  
@@ -461,6 +505,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-08
 
@@ -482,6 +528,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-09
 
 🖌️ **Design / UI**  
@@ -501,6 +549,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-10
 
@@ -522,6 +572,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-11
 
 🖌️ **Design / UI**  
@@ -541,6 +593,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-12
 
@@ -562,6 +616,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-13
 
 🖌️ **Design / UI**  
@@ -581,6 +637,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---
 
 ### 📅 Datum: 2025-05-14
 
@@ -602,6 +660,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-15
 
 🖌️ **Design / UI**  
@@ -622,6 +682,8 @@ _Vad tänkte du på? Vad lärde du dig?_
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
 
+---
+
 ### 📅 Datum: 2025-05-16
 
 🖌️ **Design / UI**  
@@ -641,3 +703,5 @@ _Vad tänkte du på? Vad lärde du dig?_
 
 ✅ **Nästa steg**  
 _Vad tänker du göra imorgon eller nästa gång?_
+
+---

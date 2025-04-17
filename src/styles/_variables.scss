@@ -1,42 +1,36 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+// 🎨 Färgpalett
+$colorPrimary: #4a3f35;
+$colorSecondary: #a67c52;
+$colorAccent: #d4a373;
+$colorBackground: #fdf8f1;
+$colorSurface: #ffffff;
+$colorText: #2d2d2d;
+$colorMuted: #7a7a7a;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+// 📐 Spacing
+$spacingXs: 0.25rem;
+$spacingSm: 0.5rem;
+$spacingMd: 1rem;
+$spacingLg: 2rem;
+$spacingXl: 3rem;
+$spacingXxl: 6rem;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// 🔠 Typografi
+$font-family-base: "Georgia", serif;
+$font-family-ui: "inter", sans-serif;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+$fontSizeSm: 0.875rem;
+$fontSizeBase: 1rem;
+$fontSizeLg: 1.3rem;
+$fontSizeXl: 1.75rem;
+$fontSizeXxl: 2.5rem;
 
-.card {
-  padding: 2em;
-}
+// 🧱 Border radius
+$radiusSm: 4px;
+$radiusMd: 8px;
+$radiusLg: 16px;
 
-.read-the-docs {
-  color: #888;
-}
+// 🌫️ Skuggor
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.15);
