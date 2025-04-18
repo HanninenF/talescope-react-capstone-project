@@ -49,22 +49,22 @@ _Sätta upp variables.scss med färgtema, spacing och typsnitt samt skapa routes
 ### 📅 Datum: 2025-04-17
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Satte upp variables.scss med färger, typsnitt och spacing för att skapa en enhetlig, återanvändbar designgrund som följer projektets varumärkesprofil. Använde en varm färgpalett som reflekterar Talescopes boktema._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Konfigurerade routes.tsx med createBrowserRouter och strukturerade upp sidnavigeringen med en RootLayout. Implementerade RouterProvider i App.tsx för att koppla samman routing med sidkomponenterna._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Routing mellan startsida, sökresultat, bokdetaljer, favoriter och läslista implementerades. Grunden för navigering är nu på plats._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Inga problem uppstod under arbetet._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Att skapa en central variables.scss gav tydlig kontroll över designens färg och spacing, vilket gör komponentutveckling snabbare. Routing med createBrowserRouter kändes logiskt och enkelt att följa upp med sidkomponenter._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Skriva SearchContext för att hantera global state kring söksträng, resultat, laddning och felmeddelanden_
 
 ---
 
