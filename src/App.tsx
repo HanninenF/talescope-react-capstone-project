@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SearchBar from "./components/SearchBar/SearchBar";
 import RootLayout from "./layout/RootLayout";
 import Home from "./routes/Home";
 import Favorites from "./routes/Favorites";
 import BookDetails from "./routes/BookDetails";
 import Results from "./routes/Results";
+import SearchContextProvider from "./contexts/SearchContext";
+import ReadingLists from "./routes/ReadingLists";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,12 +29,18 @@ function App() {
           path: "/results",
           element: <Results />,
         },
+        {
+          path: "/readinglists",
+          element: <ReadingLists />,
+        },
       ],
     },
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <SearchContextProvider>
+        <RouterProvider router={router} />
+      </SearchContextProvider>
     </>
   );
 }

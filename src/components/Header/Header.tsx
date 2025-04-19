@@ -13,6 +13,9 @@ export default function Header() {
           <li>
             <Link to="/favorites">Favorites</Link>
           </li>
+          <li>
+            <Link to={"/readinglists"}>Reading-Lists</Link>{" "}
+          </li>
         </ul>
       </nav>
     </header>

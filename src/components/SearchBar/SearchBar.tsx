@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./SearchBar.scss";
+import { SearchContext } from "../../contexts/SearchContext";
 export default function SearchBar() {
-  const [inputValue, setInputValue] = useState("");
+  const context = useContext(SearchContext);
+  if (!context) return null;
+  const { query, setQuery } = context;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
   };
 
   return (
-    <form /* onSubmit={} */>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="search">
         <input
-          onChange={handleChange}
-          value={inputValue}
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
           placeholder="Search for book"
           id="search"
           type="text"
