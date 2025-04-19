@@ -1,3 +1,9 @@
+import PageWrapper from "../components/PageWrapper/PageWrapper";
+
 export default function ReadingLists() {
-  return <h1>ReadingLists</h1>;
+  return (
+    <PageWrapper>
+      <h1>ReadingLists</h1>
+    </PageWrapper>
+  );
 }
