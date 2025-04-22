@@ -1,14 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { useFetchBooks } from "../hooks/useFetchBooks";
+import useDebounce from "../hooks/useDebounce";
 
 type SearchContextType = {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   results: Book[];
-  setResults: React.Dispatch<React.SetStateAction<Book[]>>;
-  isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  error: string | null;
-  setError: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 export const SearchContext = createContext<SearchContextType | null>(null);
@@ -20,8 +17,14 @@ type Props = {
 export default function SearchContextProvider({ children }: Props) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Book[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+
+  const debouncedQuery = useDebounce(query, 500);
+
+  const { books } = useFetchBooks(debouncedQuery);
+
+  useEffect(() => {
+    setResults(books);
+  }, [books]);
 
   return (
     <SearchContext.Provider
@@ -29,11 +32,6 @@ export default function SearchContextProvider({ children }: Props) {
         query,
         setQuery,
         results,
-        setResults,
-        isLoading,
-        setIsLoading,
-        error,
-        setError,
       }}
     >
       {children}
