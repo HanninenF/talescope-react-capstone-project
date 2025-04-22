@@ -68,113 +68,29 @@ _Skriva SearchContext för att hantera global state kring söksträng, resultat,
 
 ---
 
-### 📅 Datum: 2025-04-18
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
-### 📅 Datum: 2025-04-19
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
-### 📅 Datum: 2025-04-20
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
-### 📅 Datum: 2025-04-21
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
 ### 📅 Datum: 2025-04-22
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Skapade ett tydligt flödesschema i Figma för hela sökflödet – från SearchBar till fetchBooks.
+Färgkodade logik för lyckade och misslyckade anrop._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Skapade fetchBooks i services/ med AbortController och error handling.
+Skapade useFetchBooks i hooks/ för att hantera API-anrop och state (books, isLoading, error).
+Implementerade useDebounce för att minska onödiga anrop vid varje knapptryck._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Kopplade ihop debounced söksträng med API-anrop.
+Uppdatering av results sker endast om books ändras._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Tidigare onödiga API-anrop löstes med debounce._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Repeterat hur try/catch/finally påverkar flödet. För att undvika att ett API-anrop triggas vid varje tangentnedslag finns flera tillvägagångssätt, beroende på om man vill ha livesök eller inte. Det här har gett mig möjlighet att fördjupa mig i olika lösningar för effektiv och användarvänlig sökfunktionalitet._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Nästa steg blir att fördjupa mig i API:ets dokumentation för att bättre förstå vilka möjligheter och begränsningar som finns, och hur jag kan utnyttja dess endpoints mer effektivt_
 
 ---
 
