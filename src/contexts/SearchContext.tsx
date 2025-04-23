@@ -5,6 +5,8 @@ import useDebounce from "../hooks/useDebounce";
 type SearchContextType = {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
+  category: string;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
   results: Book[];
 };
 
@@ -16,11 +18,12 @@ type Props = {
 
 export default function SearchContextProvider({ children }: Props) {
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
   const [results, setResults] = useState<Book[]>([]);
 
   const debouncedQuery = useDebounce(query, 500);
 
-  const { books } = useFetchBooks(debouncedQuery);
+  const { books } = useFetchBooks(debouncedQuery, category);
 
   useEffect(() => {
     setResults(books);
@@ -32,6 +35,8 @@ export default function SearchContextProvider({ children }: Props) {
         query,
         setQuery,
         results,
+        category,
+        setCategory,
       }}
     >
       {children}

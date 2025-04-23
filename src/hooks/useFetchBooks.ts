@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchBooks } from "../services/fetchBooks";
 
-export function useFetchBooks(query: string) {
+export function useFetchBooks(query: string, category: string) {
   const [books, setBooks] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +15,7 @@ export function useFetchBooks(query: string) {
       setIsLoading(true);
       setError(null);
       try {
-        const data = await fetchBooks(query, controller.signal);
+        const data = await fetchBooks(query, category, controller.signal);
         setBooks(data);
       } catch (error: any) {
         if (error.name !== "AbortError") {
@@ -28,6 +28,6 @@ export function useFetchBooks(query: string) {
 
     getBooks();
     return () => controller.abort();
-  }, [query]);
+  }, [query, category]);
   return { books, isLoading, error };
 }
