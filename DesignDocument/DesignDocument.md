@@ -97,22 +97,22 @@ _Nästa steg blir att fördjupa mig i API:ets dokumentation för att bättre fö
 ### 📅 Datum: 2025-04-23
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Inget arbete inom detta delområde idag._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Gick igenom hur man hanterar select-element i React. Implementerade en kontrollerad komponent där värdet styrs av state (category)._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Dropdownen för kategori fungerar nu som en kontrollerad komponent med korrekt hantering av användarens val._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Inga buggar idag, men diskussion om förväxling mellan defaultValue och value förtydligades._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Förstod skillnaden mellan kontrollerade och okontrollerade komponenter i React, och hur man korrekt hanterar formulärfält som select._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Fortsätta sätta mig in i API-dokumentationen för att förbereda framtida funktionalitet och integration._
 
 ---
 
