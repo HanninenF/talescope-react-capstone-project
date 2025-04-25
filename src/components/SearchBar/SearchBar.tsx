@@ -14,28 +14,30 @@ export default function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <select
-        onChange={(e) => setCategory(e.target.value)}
-        value={category}
-        name="category"
-        id="category"
-      >
-        <option value="all">All</option>
-        <option value="author">Author</option>
-        <option value="title">Title</option>
-      </select>
-      <label htmlFor="search">
-        <input
-          onChange={(e) => setQuery(e.target.value)}
-          value={query}
-          placeholder="Search for book"
-          id="search"
-          type="text"
-        />
-      </label>
-      <button type="submit">Search</button>
-    </form>
+    <div className="searchBarWrapper">
+      <form onSubmit={handleSubmit}>
+        <select
+          onChange={(e) => setCategory(e.target.value)}
+          value={category}
+          name="category"
+          id="category"
+        >
+          <option value="all">All</option>
+          <option value="author">Author</option>
+          <option value="title">Title</option>
+        </select>
+        <label htmlFor="search">
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+            placeholder="Search for book"
+            id="search"
+            type="text"
+          />
+        </label>
+        <button type="submit">🔎</button>
+      </form>
+    </div>
   );
 }
 

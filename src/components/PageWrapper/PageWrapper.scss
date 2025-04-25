@@ -1,7 +1,7 @@
 @use "../../styles/variables" as var;
 
 .pageWrapper {
-  margin-top: var.$spacingMd;
+  margin-top: var.$spacingLg;
   display: flex;
   justify-content: space-around;
 }

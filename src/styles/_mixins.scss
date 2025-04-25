@@ -1,0 +1,21 @@
+@use "./variables" as var;
+
+@mixin searchBarBase(
+  $width,
+  $padding,
+  $border-top,
+  $border-right,
+  $border-bottom,
+  $border-left
+) {
+  color: var.$colorText;
+  padding: $padding;
+  font-size: var.$searchBarFontSize;
+  border-top: $border-top;
+  border-right: $border-right;
+  border-bottom: $border-bottom;
+  height: 100%;
+  border-left: $border-left;
+  width: $width;
+  background-color: var.$searchBarBackgroundColor;
+}

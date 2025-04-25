@@ -1,0 +1,55 @@
+@use "../../styles/variables" as var;
+@use "../../styles/mixins" as mixins;
+
+.searchBarWrapper {
+  /* border-radius: var.$searchBarRadius; */
+  height: var.$searchBarHeight;
+  form {
+    height: 100%;
+    display: flex;
+    select {
+      border-top-left-radius: var.$radiusSm;
+      border-bottom-left-radius: var.$radiusSm;
+      @include mixins.searchBarBase(
+        var.$searchBarWidth/4,
+        0,
+        var.$searchBarBorderColor,
+        none,
+        var.$searchBarBorderColor,
+        var.$searchBarBorderColor
+      );
+    }
+    label {
+      @include mixins.searchBarBase(
+        var.$searchBarWidth /* - (var.$searchBarWidth * 0.05) */,
+        0,
+        none,
+        none,
+        none,
+        none
+      );
+      input {
+        @include mixins.searchBarBase(
+          var.$searchBarWidth,
+          0 var.$searchBarPaddingLeftRight,
+          var.$searchBarBorderColor,
+          none,
+          var.$searchBarBorderColor,
+          none
+        );
+      }
+    }
+    button {
+      border-top-right-radius: var.$radiusSm;
+      border-bottom-right-radius: var.$radiusSm;
+      @include mixins.searchBarBase(
+        var.$searchBarWidth/6,
+        0 var.$searchBarPaddingLeftRight 0 0,
+        var.$searchBarBorderColor,
+        var.$searchBarBorderColor,
+        var.$searchBarBorderColor,
+        none
+      );
+    }
+  }
+}
