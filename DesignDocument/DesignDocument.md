@@ -119,22 +119,29 @@ _Fortsätta sätta mig in i API-dokumentationen för att förbereda framtida fun
 ### 📅 Datum: 2025-04-24
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Stylat sökfältet (searchBar) i projektet. Implementerat en @mixin kallad searchBarBase i SCSS för att kunna återanvända samma stylingmönster på flera delar av sökfältet, såsom select, input och sökknappen. Använde SCSS-variabler från variables.scss för färger och fontstorlek._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Inget arbete inom detta delområde idag._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Inget arbete inom detta delområde idag._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Inga buggar idag._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Lärde mig att för att få till rätt border-radius och rundade hörn visuellt, måste man styla border och border-radius direkt på komponenterna (select, input, button) istället för på wrappern runt dem._
 
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+✅ **Nästa steg**
+
+##### 📚 Skapa BookCard.tsx
+
+- _Skapa en visuell komponent som visar bokdata i ett kort._
+- _Lägga BookCard.tsx i widgets/._
+- _Visa titel, författare och bild-placeholder._
+- _Typa propsen korrekt med Book._
+- _Styla komponenten med en card-liknande design._
 
 ---
 
