@@ -145,91 +145,25 @@ _Lärde mig att för att få till rätt border-radius och rundade hörn visuellt
 
 ---
 
-### 📅 Datum: 2025-04-25
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
-### 📅 Datum: 2025-04-26
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
-### 📅 Datum: 2025-04-27
-
-🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
-
-💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
-
-🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
-
-🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
-
-💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
-
-✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
-
----
-
 ### 📅 Datum: 2025-04-28
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Arbetade med strukturen för att skapa en enhetlig layout, men inga större designförändringar gjordes för tillfället._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Skapade BookCard- och BookList-komponenterna för att visa böcker och länka till deras detaljsidor, samt uppdaterade URL-strukturen i routes. La till ResultsWrapper för att styla sökresultaten. Dynamiska URL:er och rutter implementerades för att länka till varje bokdetalj._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_BookCard-komponenten länkar till varje bokdetalj baserat på en dynamisk URL. BookList-komponenten renderar böckerna i en lista. URL:erna är dynamiska och varje bok har en unik länk till sin detaljsida._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_useSearchParams gav ett fel eftersom min SearchContextProvider låg utanför en Router. Jag löste det genom att wrappa min RootLayout-komponent med SearchContextProvider för att säkerställa att kontexten kapslades in inom routern._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Arbetade med att strukturera om URL:erna och gjorde dem dynamiska för att stödja unika detaljsidor per bok. Lärde mig mer om hantering av dynamiska rutter och URL-parametrar._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Skapa BookInfo-komponenten som visar detaljerad information på BookDetails, som är en dedikerad detaljsida för varje bok med en unik URL._
 
 ---
 

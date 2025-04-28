@@ -10,7 +10,6 @@ type Props = {
 export default function BookCard({ book }: Props) {
   const bookId = book.key.replace("/works/", "");
   const bookDetailUrl = routes.bookDetails.replace(":bookId", bookId);
-  console.log("bookDetailUrl= ", bookDetailUrl);
   return (
     <>
       <Link className="cardContainer" to={bookDetailUrl}>
