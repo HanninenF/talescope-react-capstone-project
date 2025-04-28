@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import "./SearchBar.scss";
 import { SearchContext } from "../../contexts/SearchContext";
+import { createSearchParams, useNavigate } from "react-router-dom";
 export default function SearchBar() {
   const context = useContext(SearchContext);
+  const navigate = useNavigate();
+
   if (!context)
     return null; /*useContext(SearchContext) returnerar null om man försöker använda den utanför SearchContextProvider. Du menar utanför <SearchContext.Provider>
   {children}
@@ -11,6 +14,7 @@ export default function SearchBar() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    navigate(`/results?q=${encodeURIComponent(query)}&category=${category}`);
   };
 
   return (

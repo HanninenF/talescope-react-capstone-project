@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
+import { Root } from "../types/OpenLibrarySearchResponse";
 
 export async function fetchBooks(
   query: string,
@@ -18,7 +19,7 @@ export async function fetchBooks(
     throw new Error("API-call failed");
   }
   console.log("response", response);
-  const data = await response.json();
+  const data = (await response.json()) as Root;
   console.log("data", data);
   return data.docs;
 }

@@ -4,43 +4,57 @@ import Home from "./routes/Home";
 import Favorites from "./routes/Favorites";
 import BookDetails from "./routes/BookDetails";
 import Results from "./routes/Results";
-import SearchContextProvider from "./contexts/SearchContext";
 import ReadingLists from "./routes/ReadingLists";
+import SearchContextProvider from "./contexts/SearchContext";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <RootLayout />,
+      element: (
+        <SearchContextProvider>
+          <RootLayout />
+        </SearchContextProvider>
+      ),
       children: [
         {
-          index: true,
-          element: <Home />,
+          path: "/",
+          element: <WithSearchLayout />,
+          children: [
+            {
+              index: true,
+              element: <Home />,
+            },
+            {
+              path: "/results",
+              element: <Results />,
+            },
+          ],
         },
         {
-          path: "/favorites",
-          element: <Favorites />,
-        },
-        {
-          path: "book/:bookId",
-          element: <BookDetails />,
-        },
-        {
-          path: "/results",
-          element: <Results />,
-        },
-        {
-          path: "/readinglists",
-          element: <ReadingLists />,
+          path: "/library",
+          element: <WithoutSearchLayout />,
+          children: [
+            {
+              path: "/favorites",
+              element: <Favorites />,
+            },
+            {
+              path: "book/:bookId",
+              element: <BookDetails />,
+            },
+            {
+              path: "/readinglists",
+              element: <ReadingLists />,
+            },
+          ],
         },
       ],
     },
   ]);
   return (
     <>
-      <SearchContextProvider>
-        <RouterProvider router={router} />
-      </SearchContextProvider>
+      <RouterProvider router={router} />
     </>
   );
 }
