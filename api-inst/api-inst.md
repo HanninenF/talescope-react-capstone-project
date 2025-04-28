@@ -69,13 +69,9 @@ Komponenter som använder results kan visa dem (t.ex. <Results />)
 
 ---
 
-Perfekt, Fredrik! 🙌 Här kommer det du bad om – först en **kommentarsblock** du kan lägga i toppen av `useFetchBooks.ts`, och sedan ett **flödesschema** som visualiserar exakt hur allt hänger ihop från input till API-anrop och global state.
-
----
-
 ## 📝 Kommentar till toppen av `useFetchBooks.ts`
 
-```ts
+```
 /**
  * 🔁 useFetchBooks - kopplar ihop ett debounced sökvärde (query)
  * med ett API-anrop till Open Library och returnerar böcker.
@@ -132,5 +128,3 @@ results är nu globalt tillgängligt i SearchContext
 ```
 
 ---
-
-Vill du att jag lägger in detta flödesschema som kommentar direkt i `SearchContext.tsx` eller hellre som ett separat `.md`-dokument i ditt projekt? 😊
