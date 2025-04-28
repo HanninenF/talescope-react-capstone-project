@@ -9,7 +9,6 @@ export default function RootLayout() {
       <Header />
       <main>
         <PageWrapper>
-          <SearchBar />
           <Outlet />
         </PageWrapper>
       </main>
