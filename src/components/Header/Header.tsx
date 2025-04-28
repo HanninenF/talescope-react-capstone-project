@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import { routes } from "../../config/routes";
 
 export default function Header() {
   return (
@@ -8,13 +9,13 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to={routes.home}>Home</Link>
           </li>
           <li>
-            <Link to="/favorites">Favorites</Link>
+            <Link to={routes.favorites}>Favorites</Link>
           </li>
           <li>
-            <Link to={"/readinglists"}>Reading-Lists</Link>{" "}
+            <Link to={routes.readingLists}>Reading-Lists</Link>
           </li>
         </ul>
       </nav>

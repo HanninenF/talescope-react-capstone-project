@@ -8,6 +8,7 @@ import ReadingLists from "./routes/ReadingLists";
 import SearchContextProvider from "./contexts/SearchContext";
 import WithoutSearchLayout from "./layout/WithoutSearchLayout";
 import WithSearchLayout from "./layout/WithSearchLayout";
+import { routes } from "./config/routes";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +21,7 @@ function App() {
       ),
       children: [
         {
-          path: "/",
+          path: routes.home,
           element: <WithSearchLayout />,
           children: [
             {
@@ -28,7 +29,7 @@ function App() {
               element: <Home />,
             },
             {
-              path: "/results",
+              path: routes.results,
               element: <Results />,
             },
           ],
@@ -38,15 +39,15 @@ function App() {
           element: <WithoutSearchLayout />,
           children: [
             {
-              path: "/library/favorites",
+              path: routes.favorites,
               element: <Favorites />,
             },
             {
-              path: "/library/book/:bookId",
+              path: routes.bookDetails,
               element: <BookDetails />,
             },
             {
-              path: "/library/readinglists",
+              path: routes.readingLists,
               element: <ReadingLists />,
             },
           ],

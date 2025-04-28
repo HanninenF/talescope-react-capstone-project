@@ -6,6 +6,13 @@ type Props = {
 };
 export default function BookList({ books }: Props) {
   return (
-    <>{books && books.map((book) => <BookCard key={book.key} book={book} />)}</>
+    <ul>
+      {books &&
+        books.map((book) => (
+          <li key={book.key}>
+            <BookCard book={book} />
+          </li>
+        ))}
+    </ul>
   );
 }

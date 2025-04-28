@@ -12,9 +12,5 @@ export default function Results() {
   }
 
   console.log("SearchContext i Results:", searchContext);
-  return (
-    <>
-      <BookList books={searchContext?.results || []} />
-    </>
-  );
+  return <BookList books={searchContext?.results || []} />;
 }

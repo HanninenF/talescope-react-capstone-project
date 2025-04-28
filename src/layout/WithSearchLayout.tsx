@@ -1,12 +1,16 @@
 import { Outlet } from "react-router-dom";
 import SearchBar from "../components/SearchBar/SearchBar";
 import RootLayout from "./RootLayout";
+import PageWrapper from "../components/PageWrapper/PageWrapper";
+import ResultsWrapper from "../components/ResultsWrapper/ResultsWrapper";
 
 export default function WithSearchLayout() {
   return (
     <>
       <SearchBar />
-      <Outlet />
+      <ResultsWrapper>
+        <Outlet />
+      </ResultsWrapper>
     </>
   );
 }

@@ -3,9 +3,5 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import Results from "./Results";
 
 export default function Home() {
-  return (
-    <>
-      <Results />
-    </>
-  );
+  return <Results />;
 }

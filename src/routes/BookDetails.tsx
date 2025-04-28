@@ -1,9 +1,7 @@
+import { useParams } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper/PageWrapper";
 
 export default function BookDetails() {
-  return (
-    <PageWrapper>
-      <h1>BookDetails</h1>
-    </PageWrapper>
-  );
+  const { bookId } = useParams();
+  return <h1>BookDetails for {bookId}</h1>;
 }
