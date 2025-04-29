@@ -1,4 +1,9 @@
+@use "../../styles/mixins" as mixins;
+@use "../../styles/variables" as var;
 .cardContainer {
-  display: grid;
-  border: 2px solid red;
+  @include mixins.cardContainerBase(var.$searchBarBorderColor);
+
+  h1 {
+    font-size: var.$spacingSmToMdMedium;
+  }
 }

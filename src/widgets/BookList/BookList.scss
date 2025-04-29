@@ -1,0 +1,10 @@
+@use "../../styles/variables" as var;
+
+.resultsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var.$spacingMd;
+  list-style-type: none;
+  li {
+  }
+}

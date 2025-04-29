@@ -1,3 +1,4 @@
+import "./BookList.scss";
 import { Doc } from "../../types/OpenLibrarySearchResponse";
 import BookCard from "../BookCard/BookCard";
 
@@ -6,10 +7,10 @@ type Props = {
 };
 export default function BookList({ books }: Props) {
   return (
-    <ul>
+    <ul className="resultsList">
       {books &&
         books.map((book) => (
-          <li key={book.key}>
+          <li className="" key={book.key}>
             <BookCard book={book} />
           </li>
         ))}

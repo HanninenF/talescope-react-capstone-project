@@ -19,3 +19,11 @@
   width: $width;
   background-color: var.$searchBarBackgroundColor;
 }
+
+@mixin cardContainerBase($border) {
+  border: $border;
+  height: var.$spacingXxl;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
