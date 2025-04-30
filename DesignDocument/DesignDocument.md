@@ -170,22 +170,22 @@ _Skapa BookInfo-komponenten som visar detaljerad information på BookDetails, so
 ### 📅 Datum: 2025-04-29
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Inget arbete inom detta delområde idag._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Gjort klart BookInfo-komponenten samt skapat en LoadingContext. Har implementerat contexten i BookInfo, men ännu inte kopplat den till själva API-anropet._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Förberett global hantering av laddningstillstånd genom LoadingContext._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Bråkade med att min context försvann när jag laddade om den unika URL:en för ett specifikt bokkort. Fick lära mig att det beror på brist på persistens i frontend-state, och att jag behöver implementera localStorage för att lösa det._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Förstått att globalt state försvinner vid sidladdning om det inte finns persistens. localStorage är en bra lösning när man inte har en backend._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Implementera LoadingContext i själva API-anropet för att hantera laddningstillstånd globalt._
 
 ---
 
