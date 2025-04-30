@@ -12,6 +12,8 @@ export async function fetchBooks(
       ? `https://openlibrary.org/search.json?${category}=${encodeURIComponent(query)}`
       : `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
 
+  console.log("🔍 API URL:", url);
+
   /*  const response = await fetch(url, { signal }); */
 
   const response = await new Promise<Response>(

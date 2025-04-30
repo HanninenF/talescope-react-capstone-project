@@ -37,8 +37,12 @@ export default function SearchContextProvider({ children }: Props) {
   }, [searchParams]);
 
   useEffect(() => {
-    setResults(books);
-    console.log("setResults(books)", books);
+    if (books.length > 0) {
+      setResults(books);
+      console.log("✅ Nya resultat från fetch:", books);
+    } else {
+      console.warn("⚠️ Inga böcker hittades – behåller tidigare results.");
+    }
   }, [books]);
 
   return (

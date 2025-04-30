@@ -1,9 +1,9 @@
 @use "../../styles/variables" as var;
 
 .pageWrapper {
-  margin-top: var.$spacingLg;
+  margin: var.$spacingLg;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
+  justify-self: center;
 }

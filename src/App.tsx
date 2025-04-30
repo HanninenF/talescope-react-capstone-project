@@ -16,18 +16,16 @@ function App() {
     {
       path: "/",
       element: (
-        <SearchContextProvider>
-          <RootLayout />
-        </SearchContextProvider>
+        <LoadingContextProvider>
+          <SearchContextProvider>
+            <RootLayout />
+          </SearchContextProvider>
+        </LoadingContextProvider>
       ),
       children: [
         {
           path: routes.home,
-          element: (
-            <LoadingContextProvider>
-              <WithSearchLayout />
-            </LoadingContextProvider>
-          ),
+          element: <WithSearchLayout />,
           children: [
             {
               index: true,

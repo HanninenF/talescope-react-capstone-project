@@ -1,64 +1,80 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchContext";
-import Loader from "../../components/Loader/Loader";
 import { LoadingContext } from "../../contexts/LoadingContext";
-import { useFetchBooks } from "../../hooks/useFetchBooks";
+import Loader from "../../components/Loader/Loader";
+import { Doc } from "../../types/OpenLibrarySearchResponse";
+/* import { fetchBookDetails } from "../../services/fetchBookDetails"; */
 
 export default function BookInfo() {
   const { bookId } = useParams();
-  const context = useContext(SearchContext);
+  const cleanBookId = (bookId || "").trim();
+  const searchContext = useContext(SearchContext);
   const { isLoading, setIsLoading } = useContext(LoadingContext) || {
     isLoading: false,
     setIsLoading: () => {},
   };
 
-  /*   const {
-    books,
-    isLoading: fetchBooksLoading,
-    error,
-  } = useFetchBooks(bookId || "", "all"); */
-  /* 
-  const [book, setBook] = useState<any>(null);
+  const [book, setBook] = useState<Doc | null>(null);
+  const [hasTriedFetch, setHasTriedFetch] = useState(false);
 
   useEffect(() => {
-    if (context && context.results.length > 0) {
-      setIsLoading(true);
-      const foundBook = context.results.find(
-        (book) => book.key.replace("/works/", "") === bookId
-      );
-      setBook(foundBook || null);
-    } else if (books.length > 0) {
-      const foundBook = books.find(
-        (book) => book.key.replace("/works/", "") === bookId
-      );
-      setBook(foundBook || null);
-    } else {
-      setBook(null);
-    }
-  }, [context, bookId, books]); */
-  if (!context) return null;
-  const book = context.results.find(
-    (book) => book.key.replace("/works/", "") === bookId
-  );
-  useEffect(() => {
-    if (context && context.results.length > 0) {
+    const fetchBook = async () => {
       setIsLoading(true);
 
-      if (book) {
-        setIsLoading(false); // Set isLoading to false once we have the book
+      let found: Doc | undefined;
+
+      // 1. Försök hitta i SearchContext
+      if (searchContext && searchContext.results.length > 0) {
+        found = searchContext.results.find(
+          (b) => b.key.replace("/works/", "").trim() === cleanBookId
+        );
       }
-    }
-  }, [book, setIsLoading]);
 
-  if (isLoading /* || fetchBooksLoading */) return <Loader />;
-  if (!book) return <div>Book not found!</div>;
+      // 2. Om inte hittad, kolla i localStorage
+      if (!found && searchContext) {
+        const storageKey = `books:${searchContext.category}:${searchContext.query}`;
+        const cached = localStorage.getItem(storageKey);
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached) as Doc[];
+            found = parsed.find(
+              (b) => b.key.replace("/works/", "").trim() === cleanBookId
+            );
+          } catch {
+            console.warn("Kunde inte parsa localStorage.");
+          }
+        }
+      }
 
-  console.log("book=", book);
+      /*   // 3. Om fortfarande inte hittad, hämta från nätet
+      if (!found && !hasTriedFetch) {
+        try {
+          const fetched = await fetchBookDetails(cleanBookId);
+          found = fetched;
+        } catch {
+          console.warn("Kunde inte hämta bok från nätet.");
+        } finally {
+          setHasTriedFetch(true);
+        }
+      } */
+
+      setBook(found || null);
+      setIsLoading(false);
+    };
+
+    if (cleanBookId) fetchBook();
+  }, [cleanBookId, searchContext, hasTriedFetch, setIsLoading]);
+
+  // Avbryt loading state om komponenten avmonteras
+  useEffect(() => () => setIsLoading(false), [setIsLoading]);
+
+  if (isLoading) return <Loader />;
+  if (!book && hasTriedFetch) return <div>Book not found!</div>;
 
   return (
     <div>
-      <h2>{book.title}</h2>
+      <h2>{book?.title}</h2>
     </div>
   );
 }

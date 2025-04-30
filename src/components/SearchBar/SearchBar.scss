@@ -7,6 +7,7 @@
   form {
     height: 100%;
     display: flex;
+    justify-self: center;
     select {
       border-top-left-radius: var.$radiusSm;
       border-bottom-left-radius: var.$radiusSm;
