@@ -3,6 +3,5 @@ import PageWrapper from "../components/PageWrapper/PageWrapper";
 import BookInfo from "../widgets/BookInfo/BookInfo";
 
 export default function BookDetails() {
-  const { bookId } = useParams();
   return <BookInfo />;
 }

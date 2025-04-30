@@ -12,7 +12,11 @@ export async function fetchBooks(
       ? `https://openlibrary.org/search.json?${category}=${encodeURIComponent(query)}`
       : `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
 
-  const response = await fetch(url, { signal });
+  /*  const response = await fetch(url, { signal }); */
+
+  const response = await new Promise<Response>(
+    (resolve) => setTimeout(() => fetch(url, { signal }).then(resolve), 2000) // Simulerar 2 sekunders fördröjning
+  );
 
   console.log(signal);
   if (!response.ok) {

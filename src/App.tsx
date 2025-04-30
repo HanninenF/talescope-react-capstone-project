@@ -9,6 +9,7 @@ import SearchContextProvider from "./contexts/SearchContext";
 import WithoutSearchLayout from "./layout/WithoutSearchLayout";
 import WithSearchLayout from "./layout/WithSearchLayout";
 import { routes } from "./config/routes";
+import LoadingContextProvider from "./contexts/LoadingContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,11 @@ function App() {
       children: [
         {
           path: routes.home,
-          element: <WithSearchLayout />,
+          element: (
+            <LoadingContextProvider>
+              <WithSearchLayout />
+            </LoadingContextProvider>
+          ),
           children: [
             {
               index: true,
