@@ -192,22 +192,27 @@ _Implementera LoadingContext i själva API-anropet för att hantera laddningstil
 ### 📅 Datum: 2025-04-30
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Inget arbete inom detta delområde idag._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Förbättrade `BookInfo` så den söker efter boken i tre steg:_
+
+1. _`SearchContext.results`,_
+2. _`localStorage` (per query och kategori),_
+3. _(förberett men avkommenterat) API-fallback._  
+   _Flyttade även `LoadingContextProvider` runt hela appen för att säkerställa global tillgång till loading-state._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Gjorde `BookInfo` mer robust så den inte förlitar sig enbart på `SearchContext`, vilket löste buggar som uppstod vid direktnavigering till detaljsidan._
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Upptäckte att `SearchContext.results` ibland var tomt vid direktladdning eller bakåt-navigering. Problemet låg i att `useFetchBooks` inte hunnit hämta data än p.g.a. `debouncedQuery`. Loader flashade till onödigt vid back-navigering._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Insåg att problemet inte låg i `BookInfo`, utan i `SearchContext`-timingen. Blev en bra påminnelse om hur asynkron state och mount-timing kan orsaka subtila buggar. Genom att använda `localStorage` per query/kategori kunde jag undvika onödiga nätverksanrop och visa data snabbare._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_reflektion och testning_
 
 ---
 
