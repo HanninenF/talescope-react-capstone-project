@@ -1,0 +1,22 @@
+@use "../../styles/variables" as var;
+.detailedBookCardCon {
+  border: 2px solid red;
+  min-width: 30rem;
+  height: 30rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  a {
+    img {
+      cursor: zoom-in;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      object-fit: cover;
+      background-color: var.$colorMuted;
+    }
+  }
+}

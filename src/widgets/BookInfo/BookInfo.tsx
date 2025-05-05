@@ -1,9 +1,11 @@
+import "./BookInfo.scss";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SearchContext } from "../../contexts/SearchContext";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import Loader from "../../components/Loader/Loader";
 import { Doc } from "../../types/OpenLibrarySearchResponse";
+import { getImageUrl } from "../../config/imageUrls";
 /* import { fetchBookDetails } from "../../services/fetchBookDetails"; */
 
 export default function BookInfo() {
@@ -73,8 +75,27 @@ export default function BookInfo() {
   if (!book && hasTriedFetch) return <div>Book not found!</div>;
 
   return (
-    <div>
-      <h2>{book?.title}</h2>
-    </div>
+    book && (
+      <div className="detailedBookCardCon">
+        <h2>{book.title}</h2>
+        {book.cover_i ? (
+          <a
+            href={getImageUrl(book.cover_i, "L")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              loading="lazy"
+              src={getImageUrl(book.cover_i, "M")}
+              alt={`Cover for ${book.title}`}
+            />
+          </a>
+        ) : (
+          <p>No cover available </p>
+        )}
+      </div>
+    )
   );
 }
+
+//TODO: css a-taggar

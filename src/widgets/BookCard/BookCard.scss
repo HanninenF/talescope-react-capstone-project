@@ -1,9 +1,62 @@
 @use "../../styles/mixins" as mixins;
 @use "../../styles/variables" as var;
-.cardContainer {
-  @include mixins.cardContainerBase(var.$searchBarBorderColor);
+.BookCard {
+  @include mixins.cardContainerBase(var.$bookCardBorderColor);
 
-  h1 {
-    font-size: var.$spacingSmToMdMedium;
+  .BookCard__imageWrapper {
+    position: relative;
+    max-width: 60px;
+    max-height: 90px;
+    &.is-placeholder::after {
+      content: "";
+      position: absolute;
+      inset: 0; // täcker hela bilden
+      background: rgba(0, 0, 0, 0.2); // mörk overlay
+      pointer-events: none;
+      border-radius: 2px; // matcha ev. bildens form
+    }
+
+    .BookCard__image {
+      border: var.$smallImageBorder;
+      border-radius: 2px;
+      aspect-ratio: 2 / 3;
+      width: 100%;
+
+      height: 100%;
+      object-fit: cover;
+      background-color: var.$colorMuted;
+    }
+  }
+  .BookCard__info {
+    justify-items: flex-end;
+    padding-left: var.$spacingSm;
+    text-align: end;
+
+    h2 {
+      font-size: var.$spacingSmToMdLarge;
+      font-weight: bold;
+      padding-bottom: var.$spacingXs;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+      box-orient: vertical; // framtida stöd
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h3 {
+      font-size: var.$spacingSmToMdMedium;
+      color: var.$colorMuted;
+      font-weight: normal;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+      box-orient: vertical; // framtida stöd
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

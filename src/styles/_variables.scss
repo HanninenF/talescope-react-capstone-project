@@ -1,24 +1,25 @@
 // 🎨 Färgpalett
-$colorPrimary: #4a3f35;
-$colorBorder: hsl(29 100% 50%);
-$colorSecondary: #a67c52;
-$colorAccent: #d4a373;
+$colorPrimary: #4677a4;
+$colorBorder: hsl(29 47% 56% / 1);
+$colorSecondary: hsl(28.42, 18.1%, 20.59%);
+$colorAccent: hsl(29 100% 50%);
 $colorBackground: #fdf8f1;
 $colorSurface: #ffffff;
 $colorText: hsl(29 70% 93% / 1);
-$colorMuted: #7a7a7a;
+$colorMuted: hsl(0, 0%, 76%);
 
 // 📐 Spacing
 $spacingXs: 0.25rem;
 $spacingSm: 0.5rem;
 $spacingSmToMdSmall: 0.6rem;
-$spacingSmToMdMedium: 0.75rem;
-$spacingSmToMdLarge: 0.8rem;
+$spacingSmToMdMedium: 0.73rem;
+$spacingSmToMdLarge: 0.77rem;
 $spacingSmToMdXLarge: 0.9rem;
 $spacingMd: 1rem;
 $spacingLg: 2rem;
 $spacingXl: 3rem;
 $spacingXxl: 6rem;
+$spacingXxxl: 7rem;
 
 // 🔠 Typografi
 $font-family-base: "Georgia", serif;
@@ -49,10 +50,15 @@ $searchBarPaddingLeftRight: $spacingMd;
 
 // 🎨 Färgpalett
 $searchBarBackgroundColor: hsl(0 1% 40%);
-$searchBarBorderColor: 2px solid $colorBorder;
+$searchBarBorderColor: 2px solid $colorAccent;
 
 // 🔠 Typografi
 $searchBarFontSize: $fontSizeBase;
 
 // 🧱 Border radius
 $searchBarRadius: $radiusSm;
+
+// BookCardVariables
+// 🎨 Färgpalett
+$bookCardBorderColor: 2px solid $colorBorder;
+$smallImageBorder: 1px solid $colorBorder;
