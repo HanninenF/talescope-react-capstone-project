@@ -218,22 +218,43 @@ _Designa detaljerat kort i Figma._
 ### 📅 Datum: 2025-05-06
 
 🖌️ **Design / UI**  
-_Beskriv vad du gjort designmässigt den här dagen._
+_Skissade ett detaljerat bokkort i Figma för att visualisera layouten med status, betyg och metadata.
+Uppdaterade BookInfo med visning av författare, publiceringsår samt styling av dessa sektioner._
 
 💻 **Teknisk implementation**  
-_Beskriv vad du kodat eller strukturerat._
+_Skapade ReadingListContext för att globalt hantera läslistor, status och betyg.
+Implementerade BookInfo-komponenten med knappar och logik för att:_
+
+- _Lägga till/ta bort från läslista_
+
+- _Visa statusindikatorer_
+
+- _Hantera betyg_
+
+_Flyttade onClick-funktionalitet till funktioner i komponenten för ökad tydlighet._
 
 🔧 **Funktionalitet**  
-_Vilka funktioner har du byggt eller förberett?_
+_Användaren kan nu:_
+
+- _Lägga till/ta bort bok i läslista_
+
+- _Se och sätta lässtatus (läser nu, läst färdigt)_
+
+- _Sätta betyg via stjärnknappar_
+
+- _Se författare och första publiceringsår_
 
 🐞 **Buggar / Problem**  
-_Problem du stött på – och ev. lösningar._
+_Inga tydliga buggar, men krävde en hel del reflektion kring vilka delar som ska vara lokal kontra global state, och hur interaktion mellan UI och state bör struktureras._
 
 💭 **Reflektion / Lärdomar**  
-_Vad tänkte du på? Vad lärde du dig?_
+_Insåg vikten av tydlig state-struktur när flera UI-element styrs av samma data.
+Att hålla status och betyg globalt förenklar logiken för andra vyer (som t.ex. läslistan).
+Att flytta onClick-funktioner till toppen av komponenten förbättrar läsbarheten markant._
 
 ✅ **Nästa steg**  
-_Vad tänker du göra imorgon eller nästa gång?_
+_Lägga till visning av språk, antal utgåvor och indikator för fri tillgång.
+Flytta kvarvarande onClick-funktioner till egna funktioner i komponenten._
 
 ---
 
