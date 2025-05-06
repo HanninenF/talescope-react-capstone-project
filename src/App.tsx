@@ -10,17 +10,20 @@ import WithoutSearchLayout from "./layout/WithoutSearchLayout";
 import WithSearchLayout from "./layout/WithSearchLayout";
 import { routes } from "./config/routes";
 import LoadingContextProvider from "./contexts/LoadingContext";
+import { ReadingListContextProvider } from "./contexts/ReadingListContext";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <LoadingContextProvider>
-          <SearchContextProvider>
-            <RootLayout />
-          </SearchContextProvider>
-        </LoadingContextProvider>
+        <ReadingListContextProvider>
+          <LoadingContextProvider>
+            <SearchContextProvider>
+              <RootLayout />
+            </SearchContextProvider>
+          </LoadingContextProvider>
+        </ReadingListContextProvider>
       ),
       children: [
         {

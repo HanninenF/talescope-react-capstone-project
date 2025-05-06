@@ -14,49 +14,66 @@
     justify-content: space-between;
   }
 
-  .detailedBookCard__midSectionAuthor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2 {
-      margin-bottom: var.$spacingXs;
-    }
+  .detailedBookCard__midSection {
+    position: relative;
+    width: 100%;
 
-    a {
-      img {
-        cursor: zoom-in;
-        aspect-ratio: 2 / 3;
-        width: 100%;
-        max-width: 180px;
-        height: auto;
-        object-fit: cover;
-        background-color: var.$colorMuted;
+    .detailedBookCard__midSectionAuthor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        margin-bottom: var.$spacingXs;
+      }
+
+      a {
+        img {
+          cursor: zoom-in;
+          aspect-ratio: 2 / 3;
+          width: 100%;
+          max-width: 180px;
+          height: auto;
+          object-fit: cover;
+          background-color: var.$colorMuted;
+        }
+      }
+      .BookCard__rating {
+        display: flex;
+        gap: 0.3rem;
+
+        button.star {
+          background: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          color: gray;
+
+          &.active {
+            color: gold;
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          &:focus {
+            outline: 2px solid var.$colorAccent;
+            outline-offset: 2px;
+          }
+        }
       }
     }
-    .BookCard__rating {
+    .detailedBookCard__midSectionIndicators {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      font-size: var.$fontSizeXl;
       display: flex;
-      gap: 0.3rem;
-
-      button.star {
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-        color: gray;
-
-        &.active {
-          color: gold;
-        }
-
-        img {
-          width: 24px;
-          height: 24px;
-        }
-
-        &:focus {
-          outline: 2px solid var.$colorAccent;
-          outline-offset: 2px;
-        }
+      flex-direction: column;
+      align-items: flex-end;
+      p {
+        font-size: var.$fontSizeSm;
       }
     }
   }

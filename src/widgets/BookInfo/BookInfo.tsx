@@ -7,6 +7,7 @@ import { LoadingContext } from "../../contexts/LoadingContext";
 import Loader from "../../components/Loader/Loader";
 import { Doc } from "../../types/OpenLibrarySearchResponse";
 import { getImageUrl } from "../../config/imageUrls";
+import { useReadingList } from "../../contexts/ReadingListContext";
 /* import { fetchBookDetails } from "../../services/fetchBookDetails"; */
 
 export default function BookInfo() {
@@ -20,7 +21,14 @@ export default function BookInfo() {
 
   const [book, setBook] = useState<Doc | null>(null);
   const [hasTriedFetch, setHasTriedFetch] = useState(false);
-  const [rating, setRating] = useState(0);
+
+  const {
+    readingList,
+    addToReadingList,
+    removeFromReadingList,
+    updateRating,
+    updateStatus,
+  } = useReadingList();
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -74,16 +82,37 @@ export default function BookInfo() {
   useEffect(() => () => setIsLoading(false), [setIsLoading]);
 
   if (isLoading) return <Loader />;
+  if (!book) return null;
   if (!book && hasTriedFetch) return <div>Book not found!</div>;
 
-  return (
-    book && (
-      <div className="detailedBookCard">
-        <div className="detailedBookCard__topSection">
-          <button>X</button>
+  const bookInList = readingList.find((b) => b.key === book.key);
+  const rating = bookInList?.rating || 0;
+  const status = bookInList?.status;
 
-          <h3>{book.first_publish_year}</h3>
-        </div>
+  const handleToggleReadingList = () => {
+    if (!bookInList) {
+      addToReadingList(book);
+    } else {
+      removeFromReadingList(book.key);
+    }
+  };
+
+  return (
+    <div className="detailedBookCard">
+      <div className="detailedBookCard__topSection">
+        <button
+          onClick={handleToggleReadingList}
+          aria-label={
+            !bookInList ? "Add to reading list" : "	Remove from reading list"
+          }
+        >
+          {!bookInList ? "➕" : "❌"}
+        </button>
+
+        <h3>{book.first_publish_year}</h3>
+      </div>
+
+      <div className="detailedBookCard__midSection">
         <div className="detailedBookCard__midSectionAuthor">
           <h2>{book.title}</h2>
           {book.cover_i ? (
@@ -99,28 +128,72 @@ export default function BookInfo() {
               />
             </a>
           ) : (
-            <p>No cover available </p>
+            <p>No cover available</p>
           )}
-          <div
-            className="BookCard__rating"
-            role="radiogroup"
-            aria-label="Betygsätt bok"
-          >
-            {Array.from({ length: 5 }).map((_, i) => (
-              <button
-                key={i}
-                className={`star ${i < rating ? "active" : ""}`}
-                onClick={() => setRating(i + 1)}
-                aria-pressed={i < rating}
-                aria-label={`Sätt betyg ${i + 1} av 5`}
+          {bookInList && (
+            <>
+              <div className="detailedBookCard__readingStatus">
+                <button
+                  onClick={() =>
+                    updateStatus(
+                      book.key,
+                      status === "reading" ? null : "reading"
+                    )
+                  }
+                >
+                  {status === "reading"
+                    ? "⛔ Stop reading"
+                    : "▶️ Start reading"}
+                </button>
+                <button
+                  onClick={() =>
+                    updateStatus(
+                      book.key,
+                      status === "finished" ? null : "finished"
+                    )
+                  }
+                >
+                  {status === "finished"
+                    ? "🗑️  Remove mark as read"
+                    : "📘 Mark as read"}
+                </button>
+              </div>
+              <div
+                className="BookCard__rating"
+                role="radiogroup"
+                aria-label="Rate Book"
               >
-                <img src={starIcon} alt="" aria-hidden="true" />
-              </button>
-            ))}
-          </div>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <button
+                    key={i}
+                    className={`star ${i < rating ? "active" : ""}`}
+                    onClick={() => updateRating(book.key, i + 1)}
+                    aria-pressed={i < rating}
+                    aria-label={`Set rating ${i + 1} of 5`}
+                  >
+                    <img src={starIcon} alt="" aria-hidden="true" />
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        <div className="detailedBookCard__midSectionIndicators">
+          {status === "reading" && (
+            <>
+              <span className="reading-indicator">🟢</span>
+              <p>Reading</p>
+            </>
+          )}
+          {status === "finished" && (
+            <>
+              <span className="finished-indicator">✅</span>
+              <p>Finished</p>
+            </>
+          )}
         </div>
       </div>
-    )
+    </div>
   );
 }
 
