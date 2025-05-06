@@ -1,3 +1,4 @@
+import starIcon from "../../assets/Icons/starIcon.svg";
 import "./BookInfo.scss";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -19,6 +20,7 @@ export default function BookInfo() {
 
   const [book, setBook] = useState<Doc | null>(null);
   const [hasTriedFetch, setHasTriedFetch] = useState(false);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -76,23 +78,47 @@ export default function BookInfo() {
 
   return (
     book && (
-      <div className="detailedBookCardCon">
-        <h2>{book.title}</h2>
-        {book.cover_i ? (
-          <a
-            href={getImageUrl(book.cover_i, "L")}
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="detailedBookCard">
+        <div className="detailedBookCard__topSection">
+          <button>X</button>
+
+          <h3>{book.first_publish_year}</h3>
+        </div>
+        <div className="detailedBookCard__midSectionAuthor">
+          <h2>{book.title}</h2>
+          {book.cover_i ? (
+            <a
+              href={getImageUrl(book.cover_i, "L")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                loading="lazy"
+                src={getImageUrl(book.cover_i, "M")}
+                alt={`Cover for ${book.title}`}
+              />
+            </a>
+          ) : (
+            <p>No cover available </p>
+          )}
+          <div
+            className="BookCard__rating"
+            role="radiogroup"
+            aria-label="Betygsätt bok"
           >
-            <img
-              loading="lazy"
-              src={getImageUrl(book.cover_i, "M")}
-              alt={`Cover for ${book.title}`}
-            />
-          </a>
-        ) : (
-          <p>No cover available </p>
-        )}
+            {Array.from({ length: 5 }).map((_, i) => (
+              <button
+                key={i}
+                className={`star ${i < rating ? "active" : ""}`}
+                onClick={() => setRating(i + 1)}
+                aria-pressed={i < rating}
+                aria-label={`Sätt betyg ${i + 1} av 5`}
+              >
+                <img src={starIcon} alt="" aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     )
   );

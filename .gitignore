@@ -25,3 +25,4 @@ dist-ssr
 # Exclude API keys
 src/keys/apiKey.ts
 instructions.md
+bookDetailsUI-Instructions.md
