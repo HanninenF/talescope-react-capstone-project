@@ -23,7 +23,7 @@
       flex-direction: column;
       align-items: center;
       h2 {
-        margin-bottom: var.$spacingXs;
+        margin-bottom: var.$spacingSm;
       }
 
       a {
@@ -37,9 +37,14 @@
           background-color: var.$colorMuted;
         }
       }
+      .detailedBookCard__readingStatus {
+        margin-top: var.$spacingSm;
+      }
       .BookCard__rating {
+        margin-top: var.$spacingXs;
         display: flex;
-        gap: 0.3rem;
+        line-height: 0;
+        gap: 0.05rem;
 
         button.star {
           background: none;
@@ -52,9 +57,10 @@
             color: gold;
           }
 
-          img {
-            width: 24px;
-            height: 24px;
+          .star-icon {
+            display: block; // 🟢 Ta bort eventuellt vertikalt glapp
+            width: 100%;
+            height: 100%;
           }
 
           &:focus {

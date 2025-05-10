@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { Doc } from "../types/OpenLibrarySearchResponse";
 
-type ReadingListItem = Doc & {
+export type ReadingListItem = Doc & {
   status?: "reading" | "finished";
   rating?: number;
 };

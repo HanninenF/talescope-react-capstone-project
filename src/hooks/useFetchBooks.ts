@@ -29,20 +29,24 @@ export function useFetchBooks(query: string, category: string) {
     }
 
     const controller = new AbortController();
+    const signal = controller.signal;
 
     const getBooks = async () => {
       setIsLoading(true);
       setError(null);
       try {
-        const data = await fetchBooks(query, category, controller.signal);
-        setBooks(data);
-        localStorage.setItem(storageKey, JSON.stringify(data));
-        console.log("books after fetch", data);
-      } catch (error: any) {
-        if (error.name !== "AbortError") {
-          setError("Could not fetch books");
+        const data = await fetchBooks(query, category, signal);
+        if (!signal.aborted) {
+          setBooks(data);
+          localStorage.setItem(storageKey, JSON.stringify(data));
+          console.log("books after fetch", data);
+          setIsLoading(false);
         }
-      } finally {
+      } catch (error: any) {
+        if (error.name === "AbortError") {
+          return;
+        }
+        setError("Could not fetch books");
         setIsLoading(false);
       }
     };

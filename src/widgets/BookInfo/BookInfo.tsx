@@ -8,6 +8,9 @@ import Loader from "../../components/Loader/Loader";
 import { Doc } from "../../types/OpenLibrarySearchResponse";
 import { getImageUrl } from "../../config/imageUrls";
 import { useReadingList } from "../../contexts/ReadingListContext";
+import StarIcon from "../../components/StarIcon/StarIcon";
+import RatingStar from "../RatingGroup";
+import RatingGroup from "../RatingGroup";
 /* import { fetchBookDetails } from "../../services/fetchBookDetails"; */
 
 export default function BookInfo() {
@@ -158,23 +161,11 @@ export default function BookInfo() {
                     : "📘 Mark as read"}
                 </button>
               </div>
-              <div
-                className="BookCard__rating"
-                role="radiogroup"
-                aria-label="Rate Book"
-              >
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <button
-                    key={i}
-                    className={`star ${i < rating ? "active" : ""}`}
-                    onClick={() => updateRating(book.key, i + 1)}
-                    aria-pressed={i < rating}
-                    aria-label={`Set rating ${i + 1} of 5`}
-                  >
-                    <img src={starIcon} alt="" aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
+              <RatingGroup
+                rating={rating}
+                onRate={(newRating) => updateRating(book.key, newRating)}
+                size={26}
+              />
             </>
           )}
         </div>
