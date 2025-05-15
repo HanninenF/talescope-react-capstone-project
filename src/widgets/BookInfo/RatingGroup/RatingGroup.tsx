@@ -1,5 +1,5 @@
-import StarIcon from "../components/StarIcon/StarIcon";
-
+import StarIcon from "../../../components/StarIcon/StarIcon";
+import "./RatingGroup.scss";
 type RatingGroupProps = {
   rating: number;
   onRate: (newRating: number) => void;

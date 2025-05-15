@@ -1,8 +1,8 @@
 export const getImageUrl = (
   coverId: number | undefined,
   size: "S" | "M" | "L" = "M"
-) => {
-  return coverId
-    ? `https://covers.openlibrary.org/b/id/${coverId}-${size}.jpg`
-    : "https://covers.openlibrary.org/b/id/10909258-L.jpg";
+): string => {
+  const fallbackId = 10909258; // Open Librarys "no cover available"-bild
+  const idToUse = coverId ?? fallbackId;
+  return `https://covers.openlibrary.org/b/id/${idToUse}-${size}.jpg`;
 };

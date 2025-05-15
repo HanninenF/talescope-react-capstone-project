@@ -3,5 +3,5 @@ export const routes = {
   results: "/results",
   favorites: "/library/favorites",
   bookDetails: "/library/book/:bookId",
-  readingLists: "/library/readinglists",
+  readingList: "/library/readinglist",
 };

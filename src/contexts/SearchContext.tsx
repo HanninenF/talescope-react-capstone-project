@@ -10,6 +10,7 @@ type SearchContextType = {
   category: string;
   setCategory: React.Dispatch<React.SetStateAction<string>>;
   results: Doc[];
+  addBookToResults: (book: Doc) => void;
 };
 
 export const SearchContext = createContext<SearchContextType | null>(null);
@@ -30,10 +31,11 @@ export default function SearchContextProvider({ children }: Props) {
   const { books } = useFetchBooks(debouncedQuery, category);
 
   useEffect(() => {
-    const q = searchParams.get("q") || "";
-    const c = searchParams.get("category") || "all";
-    setQuery(q);
-    setCategory(c);
+    const q = searchParams.get("q");
+    const c = searchParams.get("category");
+
+    if (q !== null) setQuery(q);
+    if (c !== null) setCategory(c);
   }, [searchParams]);
 
   useEffect(() => {
@@ -41,9 +43,18 @@ export default function SearchContextProvider({ children }: Props) {
       setResults(books);
       console.log("✅ Nya resultat från fetch:", books);
     } else {
-      console.warn("⚠️ Inga böcker hittades – behåller tidigare results.");
+      console.warn(
+        "⚠️ Inga böcker hittades i SearchContext – använder tidigare results eller annan källa."
+      );
     }
   }, [books]);
+
+  const addBookToResults = (book: Doc) => {
+    setResults((prev) => {
+      const alreadyExists = prev.some((b) => b.key === book.key);
+      return alreadyExists ? prev : [...prev, book];
+    });
+  };
 
   return (
     <SearchContext.Provider
@@ -53,6 +64,7 @@ export default function SearchContextProvider({ children }: Props) {
         results,
         category,
         setCategory,
+        addBookToResults,
       }}
     >
       {children}

@@ -1,3 +1,4 @@
+import "./StarIcon.scss";
 type StarIconProps = {
   size?: number;
 };

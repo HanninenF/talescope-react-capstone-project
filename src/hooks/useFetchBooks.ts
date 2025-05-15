@@ -43,11 +43,10 @@ export function useFetchBooks(query: string, category: string) {
           setIsLoading(false);
         }
       } catch (error: any) {
-        if (error.name === "AbortError") {
-          return;
+        if (error.name !== "AbortError") {
+          setError("Could not fetch books");
+          setIsLoading(false);
         }
-        setError("Could not fetch books");
-        setIsLoading(false);
       }
     };
 

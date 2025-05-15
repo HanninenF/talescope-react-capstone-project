@@ -1,10 +1,10 @@
 import PageWrapper from "../components/PageWrapper/PageWrapper";
 import ReadingListView from "../widgets/ReadingListView/ReadingListView";
 
-export default function ReadingLists() {
+export default function ReadingList() {
   return (
     <PageWrapper>
-      <h1>📚 Din Läslista</h1>
+      <h1>📚 My Reading List</h1>
       <ReadingListView />
     </PageWrapper>
   );

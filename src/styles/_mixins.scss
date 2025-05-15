@@ -20,12 +20,12 @@
   background-color: var.$searchBarBackgroundColor;
 }
 
-@mixin cardContainerBase($border) {
-  border-radius: 5px;
-  background-color: var.$colorSecondary;
-  padding: var.$spacingSm;
-  border: $border;
-  min-height: var.$spacingXxxl;
+@mixin cardContainerBase {
+  /*  border-radius: 5px; */
+  /* background-color: var.$colorSecondary; */
+  padding: var.$spacingSm 0 0 var.$spacingSm;
+  /* border: $border; */
+  /* min-height: var.$spacingXxxl; */
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

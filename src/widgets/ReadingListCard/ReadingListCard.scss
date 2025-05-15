@@ -1,0 +1,81 @@
+/* @use "../../styles/mixins" as mixins;
+@use "../../styles/variables" as var;
+.BookCard__readingList {
+  @include mixins.cardContainerBase(var.$bookCardBorderColor);
+  align-items: flex-end;
+  flex-direction: column;
+  .BookCard__link {
+    @include mixins.cardContainerBase(none);
+    position: relative;
+    .BookCard__imageWrapper {
+      position: relative;
+      max-width: 60px;
+      max-height: 90px;
+      &.is-placeholder::after {
+        content: "";
+        position: absolute;
+        inset: 0; // täcker hela bilden
+        background: rgba(0, 0, 0, 0.2); // mörk overlay
+        pointer-events: none;
+        border-radius: 2px; // matcha ev. bildens form
+      }
+    }
+    /* .BookCard__info {
+      justify-items: flex-end;
+      padding-left: var.$spacingSm;
+      text-align: end;
+
+      h2 {
+        font-size: var.$spacingSmToMdLarge;
+        font-weight: bold;
+        padding-bottom: var.$spacingXs;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+        box-orient: vertical; // framtida stöd
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      h3 {
+        font-size: var.$spacingSmToMdMedium;
+        color: var.$colorMuted;
+        font-weight: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+        box-orient: vertical; // framtida stöd
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    } 
+  }
+  .BookCard__rating {
+    margin-top: var.$spacingXs;
+    display: flex;
+    line-height: 0;
+    gap: 0.05rem;
+
+    button.star {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: gray;
+
+      &.active {
+        color: gold;
+      }
+
+      .star-icon {
+        display: block; // 🟢 Ta bort eventuellt vertikalt glapp
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+ */

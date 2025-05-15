@@ -4,13 +4,14 @@ import Home from "./routes/Home";
 import Favorites from "./routes/Favorites";
 import BookDetails from "./routes/BookDetails";
 import Results from "./routes/Results";
-import ReadingLists from "./routes/ReadingLists";
+import ReadingLists from "./routes/ReadingList";
 import SearchContextProvider from "./contexts/SearchContext";
 import WithoutSearchLayout from "./layout/WithoutSearchLayout";
 import WithSearchLayout from "./layout/WithSearchLayout";
 import { routes } from "./config/routes";
 import LoadingContextProvider from "./contexts/LoadingContext";
 import { ReadingListContextProvider } from "./contexts/ReadingListContext";
+import ReadingList from "./routes/ReadingList";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,8 +54,8 @@ function App() {
               element: <BookDetails />,
             },
             {
-              path: routes.readingLists,
-              element: <ReadingLists />,
+              path: routes.readingList,
+              element: <ReadingList />,
             },
           ],
         },

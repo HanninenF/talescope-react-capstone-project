@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper/PageWrapper";
-import BookInfo from "../widgets/BookInfo/BookInfo";
+import DetailedBookCard from "../widgets/DetailedBookCard/DetailedBookCard";
 
 export default function BookDetails() {
-  return <BookInfo />;
+  return <DetailedBookCard />;
 }

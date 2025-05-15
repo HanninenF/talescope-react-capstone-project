@@ -27,3 +27,13 @@ export type Doc = {
   title: string; // Bokens titel
   subtitle?: string; // Undertitel (om det finns)
 };
+
+export type WorkDetails = {
+  key: string;
+  title: string;
+  cover_i?: number;
+  author_name: string[];
+  first_publish_year?: number; // från SearchContext (Doc) inte från works/:id
+};
+
+export type ExtendedDoc = Doc & { edition_year?: number };

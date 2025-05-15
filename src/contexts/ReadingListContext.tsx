@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import { Doc } from "../types/OpenLibrarySearchResponse";
+import { WorkDetails } from "../services/fetchBookDetails";
 
-export type ReadingListItem = Doc & {
+export type ReadingListItem = WorkDetails & {
   status?: "reading" | "finished";
   rating?: number;
 };
 
 type ReadingListContextType = {
   readingList: ReadingListItem[];
-  addToReadingList: (book: Doc) => void;
+  addToReadingList: (book: WorkDetails) => void;
   removeFromReadingList: (key: string) => void;
   updateRating: (key: string, rating: number) => void;
   updateStatus: (key: string, status: "reading" | "finished" | null) => void;
@@ -25,7 +25,7 @@ export const ReadingListContextProvider = ({
 }) => {
   const [readingList, setReadingList] = useState<ReadingListItem[]>([]);
 
-  const addToReadingList = (book: Doc) => {
+  const addToReadingList = (book: WorkDetails) => {
     if (!readingList.find((b) => b.key === book.key)) {
       setReadingList((prev) => [...prev, { ...book }]);
     }

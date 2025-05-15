@@ -1,17 +1,34 @@
 import { Link } from "react-router-dom";
-import { ReadingListItem } from "../../contexts/ReadingListContext";
+import {
+  ReadingListItem,
+  useReadingList,
+} from "../../contexts/ReadingListContext";
+import { getImageUrl } from "../../config/imageUrls";
+import RatingGroup from "../BookInfo/RatingGroup/RatingGroup";
+import "./ReadingListCard.scss";
+import ReadingStatusIndicator from "../BookInfo/ReadingStatusIndicator/ReadingStatusIndicator";
+import BookMetadata from "../BookInfo/BookMetadata/BookMetadata";
+import BookCover from "../BookInfo/BookCover/BookCover";
+import BookCard from "../BookCard/BookCard";
 
 type Props = {
   book: ReadingListItem;
 };
 export default function ReadingListCard({ book }: Props) {
-  const bookId = book.key.replace("/works/", "");
+  const { updateRating } = useReadingList();
+  const rating = book.rating || 0;
+
   return (
-    <Link to={`/library/book/${bookId}`}>
-      <h3>{book.title}</h3>
-      {book.author_name && <p>Author: {book.author_name.join(",")}</p>}
-      {book.status && <p>Status: {book.status} </p>}
-      {book.rating !== undefined && <p>Rating: {book.rating}/5 </p>}
-    </Link>
+    <>
+      <BookCard book={book}>
+        {book.rating !== undefined && (
+          <RatingGroup
+            rating={rating}
+            onRate={(newRating) => updateRating(book.key, newRating)}
+            size={18}
+          />
+        )}
+      </BookCard>
+    </>
   );
 }

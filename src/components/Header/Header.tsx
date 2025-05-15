@@ -15,7 +15,7 @@ export default function Header() {
             <Link to={routes.favorites}>Favorites</Link>
           </li>
           <li>
-            <Link to={routes.readingLists}>Reading-Lists</Link>
+            <Link to={routes.readingList}>Reading-List</Link>
           </li>
         </ul>
       </nav>

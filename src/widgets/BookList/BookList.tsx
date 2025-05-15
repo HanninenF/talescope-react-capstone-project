@@ -4,6 +4,7 @@ import BookCard from "../BookCard/BookCard";
 import { useContext } from "react";
 import { LoadingContext } from "../../contexts/LoadingContext";
 import Loader from "../../components/Loader/Loader";
+import BookCard2 from "../BookCard/BookCard2";
 
 type Props = {
   books: Doc[];

@@ -9,12 +9,12 @@ export async function fetchBooks(
 ) {
   const url =
     category !== "all"
-      ? `https://openlibrary.org/search.json?${category}=${encodeURIComponent(query)}`
-      : `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`;
+      ? `/api/search.json?${category}=${encodeURIComponent(query)}`
+      : `/api/search.json?q=${encodeURIComponent(query)}`;
 
   console.log("🔍 API URL:", url);
 
-  /*  const response = await fetch(url, { signal }); */
+  /* const response = await fetch(url, { signal }); */
 
   const response = await new Promise<Response>(
     (resolve) => setTimeout(() => fetch(url, { signal }).then(resolve), 2000) // Simulerar 2 sekunders fördröjning

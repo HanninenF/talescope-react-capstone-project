@@ -26,3 +26,6 @@ dist-ssr
 src/keys/apiKey.ts
 instructions.md
 bookDetailsUI-Instructions.md
+flow-instructions.md
+BookCardFlow.md
+authorSearch.md

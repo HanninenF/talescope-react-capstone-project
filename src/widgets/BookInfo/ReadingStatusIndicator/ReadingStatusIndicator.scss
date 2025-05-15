@@ -1,0 +1,25 @@
+@use "../../../styles/variables" as var;
+
+.ReadingStatusIndicator {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ReadingStatusIndicator--compact {
+  top: 54px;
+  font-size: var.$fontSizeXl;
+  p {
+    font-size: var.$fontSizeSm;
+  }
+}
+
+.ReadingStatusIndicator--small {
+  top: 79px;
+  font-size: var.$fontSizeSm;
+  p {
+    font-size: var.$fontSizeSm;
+  }
+}

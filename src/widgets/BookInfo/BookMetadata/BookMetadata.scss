@@ -1,0 +1,38 @@
+@use "../../../styles/variables" as var;
+.detailedBookCard__title {
+  margin-bottom: var.$spacingXs;
+}
+.detailedBookCard__author {
+  font-weight: normal;
+  margin-bottom: var.$spacingSm;
+}
+.BookCard__readingList__title,
+.BookCard__info__title {
+  text-align: end;
+  font-size: var.$spacingSmToMdLarge;
+  font-weight: bold;
+  padding-bottom: var.$spacingXs;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+  box-orient: vertical; // framtida stöd
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.BookCard__readingList__author,
+.BookCard__info__author {
+  text-align: end;
+  font-size: var.$spacingSmToMdMedium;
+  color: var.$colorMuted;
+  font-weight: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  line-clamp: 2; // standardegenskap (ännu inte brett stödd)
+  box-orient: vertical; // framtida stöd
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
