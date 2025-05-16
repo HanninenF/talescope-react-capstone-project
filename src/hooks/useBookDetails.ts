@@ -1,11 +1,11 @@
 // hooks/useBookDetails.ts
 import { useContext, useEffect, useState } from "react";
-import { useReadingList } from "../contexts/ReadingListContext";
 import { SearchContext } from "../contexts/SearchContext";
 import { LoadingContext } from "../contexts/LoadingContext";
 import { fetchBookDetails, WorkDetails } from "../services/fetchBookDetails";
 import { Doc, ExtendedDoc } from "../types/OpenLibrarySearchResponse";
 import { mapDocToWorkDetails } from "../utils/mapDocToWorkDetails";
+import { useReadingList } from "./useReadingList";
 
 export function useBookDetails(bookId: string | undefined) {
   const cleanBookId = (bookId || "").trim();

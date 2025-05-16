@@ -14,9 +14,9 @@ type ReadingListContextType = {
   updateStatus: (key: string, status: "reading" | "finished" | null) => void;
 };
 
-const ReadingListContext = createContext<ReadingListContextType | undefined>(
-  undefined
-);
+export const ReadingListContext = createContext<
+  ReadingListContextType | undefined
+>(undefined);
 
 export const ReadingListContextProvider = ({
   children,
@@ -62,12 +62,4 @@ export const ReadingListContextProvider = ({
       {children}
     </ReadingListContext.Provider>
   );
-};
-
-export const useReadingList = () => {
-  const context = useContext(ReadingListContext);
-  if (!context) {
-    throw new Error("useReadingList must be used within a ReadingListProvider");
-  }
-  return context;
 };

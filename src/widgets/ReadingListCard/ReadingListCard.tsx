@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  ReadingListItem,
-  useReadingList,
-} from "../../contexts/ReadingListContext";
+
 import { getImageUrl } from "../../config/imageUrls";
 import RatingGroup from "../BookInfo/RatingGroup/RatingGroup";
 import "./ReadingListCard.scss";
@@ -10,6 +7,8 @@ import ReadingStatusIndicator from "../BookInfo/ReadingStatusIndicator/ReadingSt
 import BookMetadata from "../BookInfo/BookMetadata/BookMetadata";
 import BookCover from "../BookInfo/BookCover/BookCover";
 import BookCard from "../BookCard/BookCard";
+import { useReadingList } from "../../hooks/useReadingList";
+import { ReadingListItem } from "../../contexts/ReadingListContext";
 
 type Props = {
   book: ReadingListItem;

@@ -9,6 +9,7 @@ import BookRating from "../BookInfo/BookRating/BookRating";
 import ReadingStatusIndicator from "../BookInfo/ReadingStatusIndicator/ReadingStatusIndicator";
 import BookCover from "../BookInfo/BookCover/BookCover";
 import { getImageUrl } from "../../config/imageUrls";
+import { useReadingList } from "../../hooks/useReadingList";
 
 export default function DetailedBookCard() {
   const { bookId } = useParams();
