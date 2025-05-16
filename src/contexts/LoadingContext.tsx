@@ -1,8 +1,13 @@
 import { createContext, useState } from "react";
 
+type LoadingMap = {
+  books: boolean;
+  authors: boolean;
+};
+
 type LoadingContextType = {
-  isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: LoadingMap;
+  setLoading: React.Dispatch<React.SetStateAction<LoadingMap>>;
 };
 
 export const LoadingContext = createContext<LoadingContextType | null>(null);
@@ -12,10 +17,13 @@ type Props = {
 };
 
 export default function LoadingContextProvider({ children }: Props) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState<LoadingMap>({
+    books: false,
+    authors: false,
+  });
 
   return (
-    <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
+    <LoadingContext.Provider value={{ loading, setLoading }}>
       {children}
     </LoadingContext.Provider>
   );

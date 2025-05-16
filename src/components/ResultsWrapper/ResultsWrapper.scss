@@ -2,4 +2,5 @@
 .resultsWrapper {
   margin: var.$spacingLg;
   display: flex;
+  flex-wrap: wrap;
 }

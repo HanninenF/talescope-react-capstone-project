@@ -12,19 +12,22 @@ import { routes } from "./config/routes";
 import LoadingContextProvider from "./contexts/LoadingContext";
 import { ReadingListContextProvider } from "./contexts/ReadingListContext";
 import ReadingList from "./routes/ReadingList";
+import { AuthorFavoritesProvider } from "./contexts/AuthorFavoritesContext";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <ReadingListContextProvider>
-          <LoadingContextProvider>
-            <SearchContextProvider>
-              <RootLayout />
-            </SearchContextProvider>
-          </LoadingContextProvider>
-        </ReadingListContextProvider>
+        <AuthorFavoritesProvider>
+          <ReadingListContextProvider>
+            <LoadingContextProvider>
+              <SearchContextProvider>
+                <RootLayout />
+              </SearchContextProvider>
+            </LoadingContextProvider>
+          </ReadingListContextProvider>
+        </AuthorFavoritesProvider>
       ),
       children: [
         {

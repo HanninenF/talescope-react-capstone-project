@@ -10,10 +10,9 @@ import { mapDocToWorkDetails } from "../utils/mapDocToWorkDetails";
 export function useBookDetails(bookId: string | undefined) {
   const cleanBookId = (bookId || "").trim();
   const searchContext = useContext(SearchContext);
-  const { isLoading, setIsLoading } = useContext(LoadingContext) || {
-    isLoading: false,
-    setIsLoading: () => {},
-  };
+  const loadingContext = useContext(LoadingContext);
+  const setLoading = loadingContext?.setLoading || (() => {});
+  const isBookLoading = loadingContext?.loading.books || false;
 
   const [book, setBook] = useState<WorkDetails | null>(null);
   const [hasTriedFetch, setHasTriedFetch] = useState(false);
@@ -28,7 +27,7 @@ export function useBookDetails(bookId: string | undefined) {
 
   useEffect(() => {
     const fetchBook = async () => {
-      setIsLoading(true);
+      setLoading((prev) => ({ ...prev, books: true }));
       let foundDoc: Doc | undefined;
 
       // SearchContext
@@ -70,7 +69,7 @@ export function useBookDetails(bookId: string | undefined) {
           console.warn("❌ Failed to fetch from API");
         } finally {
           setHasTriedFetch(true);
-          setIsLoading(false);
+          setLoading((prev) => ({ ...prev, books: false }));
         }
         return;
       }
@@ -82,7 +81,7 @@ export function useBookDetails(bookId: string | undefined) {
         setBook(null);
         console.warn("🚫 Book not found in any source");
       }
-      setIsLoading(false);
+      setLoading((prev) => ({ ...prev, books: false }));
     };
 
     if (cleanBookId && !hasTriedFetch) {
@@ -107,7 +106,7 @@ export function useBookDetails(bookId: string | undefined) {
 
   return {
     book,
-    isLoading,
+    isBookLoading,
     hasTriedFetch,
     handleToggleReadingList,
     inReadingList: !!bookInList,

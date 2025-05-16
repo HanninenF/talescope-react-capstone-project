@@ -11,10 +11,10 @@ type Props = {
 };
 export default function BookList({ books }: Props) {
   const loadingContext = useContext(LoadingContext);
-  if (!loadingContext) return null;
-  const { isLoading } = loadingContext;
 
-  if (isLoading) return <Loader />;
+  const isBookLoading = loadingContext?.loading.books || false;
+
+  if (isBookLoading) return <Loader />;
 
   if (books.length === 0) return <p>No Books were found!</p>;
 

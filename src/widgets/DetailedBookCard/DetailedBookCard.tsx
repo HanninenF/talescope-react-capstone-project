@@ -14,7 +14,7 @@ export default function DetailedBookCard() {
   const { bookId } = useParams();
   const {
     book,
-    isLoading,
+    isBookLoading,
     hasTriedFetch,
     handleToggleReadingList,
     inReadingList,
@@ -24,7 +24,7 @@ export default function DetailedBookCard() {
     updateStatus,
   } = useBookDetails(bookId);
 
-  if (isLoading) return <Loader />;
+  if (isBookLoading) return <Loader />;
   if (!book && hasTriedFetch) return <div>Book not found!</div>;
   if (!book) return null;
   const largeUrl = getImageUrl(book.cover_i, "L");

@@ -8,9 +8,8 @@ export function useFetchBooks(query: string, category: string) {
   const [error, setError] = useState<string | null>(null);
 
   const loadingContext = useContext(LoadingContext);
-
-  const setIsLoading = loadingContext?.setIsLoading || (() => {});
-  const isLoading = loadingContext?.isLoading || false;
+  const setLoading = loadingContext?.setLoading || (() => {});
+  const isBookLoading = loadingContext?.loading.books || false;
 
   const storageKey = `books:${category}:${query}`;
 
@@ -32,7 +31,7 @@ export function useFetchBooks(query: string, category: string) {
     const signal = controller.signal;
 
     const getBooks = async () => {
-      setIsLoading(true);
+      setLoading((prev) => ({ ...prev, books: true }));
       setError(null);
       try {
         const data = await fetchBooks(query, category, signal);
@@ -40,12 +39,12 @@ export function useFetchBooks(query: string, category: string) {
           setBooks(data);
           localStorage.setItem(storageKey, JSON.stringify(data));
           console.log("books after fetch", data);
-          setIsLoading(false);
+          setLoading((prev) => ({ ...prev, books: false }));
         }
       } catch (error: any) {
         if (error.name !== "AbortError") {
           setError("Could not fetch books");
-          setIsLoading(false);
+          setLoading((prev) => ({ ...prev, books: false }));
         }
       }
     };
@@ -53,5 +52,5 @@ export function useFetchBooks(query: string, category: string) {
     getBooks();
     return () => controller.abort();
   }, [query, category]);
-  return { books, isLoading, error };
+  return { books, isBookLoading, error };
 }
