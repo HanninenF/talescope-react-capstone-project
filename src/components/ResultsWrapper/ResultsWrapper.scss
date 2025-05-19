@@ -1,6 +1,11 @@
 @use "../../styles/variables" as var;
+@use "../../styles/breakPoints" as *;
 .resultsWrapper {
   margin: var.$spacingLg;
   display: flex;
   flex-wrap: wrap;
+
+  @include respond-to(md) {
+    margin: 1rem;
+  }
 }

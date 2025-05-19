@@ -1,9 +1,13 @@
 @use "../../styles/variables" as var;
-
+@use "../../styles/breakPoints" as *;
 .pageWrapper {
   margin: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   justify-self: center;
+
+  @include respond-to(md) {
+    margin: 1rem;
+  }
 }
