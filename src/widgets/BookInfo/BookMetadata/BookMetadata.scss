@@ -1,10 +1,19 @@
 @use "../../../styles/variables" as var;
+@use "../../../styles/breakPoints" as *;
 .detailedBookCard__title {
   margin-bottom: var.$spacingXs;
+
+  @include respond-to(sm) {
+    font-size: var.$fontSizeSm;
+  }
 }
 .detailedBookCard__author {
   font-weight: normal;
   margin-bottom: var.$spacingSm;
+
+  @include respond-to(sm) {
+    font-size: var.$fontSizeXsm;
+  }
 }
 .BookCard__readingList__title,
 .BookCard__info__title {

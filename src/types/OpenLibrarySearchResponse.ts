@@ -34,6 +34,11 @@ export type WorkDetails = {
   cover_i?: number;
   author_name: string[];
   first_publish_year?: number; // från SearchContext (Doc) inte från works/:id
+  number_of_pages?: number;
+  cover_edition_key?: string;
+  edition_year?: number;
 };
 
-export type ExtendedDoc = Doc & { edition_year?: number };
+export type ExtendedDoc = Doc & {
+  edition_year?: number;
+};

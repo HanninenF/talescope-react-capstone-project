@@ -5,14 +5,9 @@ export async function fetchAuthorDetails(
 ): Promise<AuthorDetails | null> {
   try {
     console.log("Author ID:", authorId);
-    console.log(
-      "Fetching:",
-      `https://openlibrary.org/authors/${authorId}.json`
-    );
+    console.log("Fetching:", `/api/authors/${authorId}.json`);
 
-    const response = await fetch(
-      `https://openlibrary.org/authors/${authorId}.json`
-    );
+    const response = await fetch(`/api/authors/${authorId}.json`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }

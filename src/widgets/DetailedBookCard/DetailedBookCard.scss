@@ -1,4 +1,5 @@
 @use "../../styles/variables" as var;
+@use "../../styles/breakpoints" as *;
 .detailedBookCard {
   border: 2px solid red;
   min-width: 30rem;
@@ -19,4 +20,30 @@
     .bookCoverLink {
     }
   }
+
+  @include respond-to(md) {
+    min-width: 25rem;
+    height: 25rem;
+  }
+  @include respond-to(sm) {
+    min-width: 20rem;
+    height: 20rem;
+  }
+}
+body.modal-open {
+  pointer-events: none;
+}
+
+.modalOverlay,
+.modalContent {
+  pointer-events: auto;
+}
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999; // Högsta prioritet
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

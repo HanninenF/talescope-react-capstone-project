@@ -7,10 +7,15 @@ export default function ReadingListView() {
   const finishedBooks = readingList.filter(
     (book) => book.status === "finished"
   );
+  const totalPages = finishedBooks.reduce(
+    (sum, b) => sum + (b.number_of_pages || 0),
+    0
+  );
   return (
     <>
       <div className="ReadingListMeta">
         <p>Books read: {finishedBooks.length}</p>
+        <p>Total pages read: {totalPages}</p>
       </div>
       <ul className="resultsList">
         {readingList.map((book) => (

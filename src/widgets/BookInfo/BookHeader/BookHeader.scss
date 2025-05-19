@@ -1,18 +1,40 @@
 @use "../../../styles/variables" as var;
+@use "../../../styles/breakPoints" as *;
 .detailedBookCard__topSection {
   width: 100%;
   display: flex;
   justify-content: space-between;
 
+  button {
+    font-size: var.$font-family-base;
+    background: none;
+    cursor: pointer;
+  }
+
   .editionYearInline {
     font-size: 1.2rem;
     font-weight: 600;
+
+    @include respond-to(sm) {
+      font-size: var.$fontSizeSm;
+      font-weight: 600;
+    }
 
     em {
       font-style: italic;
       font-size: 0.9rem;
       margin-right: 0.3rem;
       color: var.$colorMuted;
+    }
+  }
+
+  .year {
+    font-size: var.$fontSizeBase;
+    font-weight: 600;
+
+    @include respond-to(sm) {
+      font-size: var.$fontSizeSm;
+      font-weight: 600;
     }
   }
 }

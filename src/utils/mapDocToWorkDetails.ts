@@ -1,5 +1,4 @@
-import { ExtendedDoc } from "../types/OpenLibrarySearchResponse";
-import { WorkDetails } from "../services/fetchBookDetails";
+import { ExtendedDoc, WorkDetails } from "../types/OpenLibrarySearchResponse";
 
 export function mapDocToWorkDetails(doc: ExtendedDoc): WorkDetails {
   return {
@@ -13,5 +12,9 @@ export function mapDocToWorkDetails(doc: ExtendedDoc): WorkDetails {
         : undefined,
     edition_year:
       typeof doc.edition_year === "number" ? doc.edition_year : undefined,
+    cover_edition_key:
+      typeof doc.cover_edition_key === "string"
+        ? doc.cover_edition_key
+        : undefined,
   };
 }

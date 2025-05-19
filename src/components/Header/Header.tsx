@@ -4,7 +4,7 @@ import { routes } from "../../config/routes";
 
 export default function Header() {
   return (
-    <header>
+    <header className="header">
       <h1>Talescope</h1>
       <nav>
         <ul>

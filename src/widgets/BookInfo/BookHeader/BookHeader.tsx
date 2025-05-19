@@ -1,4 +1,4 @@
-import { WorkDetails } from "../../../services/fetchBookDetails";
+import { WorkDetails } from "../../../types/OpenLibrarySearchResponse";
 import "./BookHeader.scss";
 
 type Props = {
@@ -13,7 +13,9 @@ export default function BookHeader({ book, inList, onToggle }: Props) {
       <button onClick={onToggle} aria-label={inList ? "Remove" : "Add"}>
         {inList ? "❌" : "➕"}
       </button>
-      {book.first_publish_year && <h3>{book.first_publish_year}</h3>}
+      {book.first_publish_year && (
+        <h3 className="year">{book.first_publish_year}</h3>
+      )}
       {!book.first_publish_year && book.edition_year && (
         <h3 className="editionYearInline">
           <em>This edition:</em> {book.edition_year}

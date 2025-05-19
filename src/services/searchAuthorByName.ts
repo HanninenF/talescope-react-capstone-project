@@ -3,9 +3,7 @@ import { Doc, Root } from "../types/authorresponsetype";
 export async function searchAuthorByName(name: string): Promise<Doc | null> {
   try {
     const query = encodeURIComponent(name.trim());
-    const response = await fetch(
-      `https://openlibrary.org/search/authors.json?q=${query}`
-    );
+    const response = await fetch(`/api/search/authors.json?q=${query}`);
 
     if (!response.ok) {
       const text = await response.text();
@@ -14,10 +12,7 @@ export async function searchAuthorByName(name: string): Promise<Doc | null> {
       );
     }
     const data: Root = await response.json();
-    console.log(
-      "full author datalink",
-      `https://openlibrary.org/search/authors.json?q=${query}`
-    );
+    console.log("full author datalink", `/api/search/authors.json?q=${query}`);
     if (!data.docs || data.docs.length === 0) {
       console.warn("No author found with name:", name);
       return null;

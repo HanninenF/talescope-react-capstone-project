@@ -1,9 +1,12 @@
 import { createContext, useContext, useState } from "react";
-import { WorkDetails } from "../services/fetchBookDetails";
+import { fetchBookEditionDetails } from "../services/fetchBookEditionDetails";
+import { WorkDetails } from "../types/OpenLibrarySearchResponse";
 
 export type ReadingListItem = WorkDetails & {
   status?: "reading" | "finished";
   rating?: number;
+  number_of_pages?: number;
+  cover_edition_key?: string;
 };
 
 type ReadingListContextType = {
@@ -11,7 +14,12 @@ type ReadingListContextType = {
   addToReadingList: (book: WorkDetails) => void;
   removeFromReadingList: (key: string) => void;
   updateRating: (key: string, rating: number) => void;
-  updateStatus: (key: string, status: "reading" | "finished" | null) => void;
+  updateStatus: (
+    key: string,
+    status: "reading" | "finished" | null
+  ) => Promise<"missing_pages" | void>;
+
+  updatePages: (key: string, pages: number) => void;
 };
 
 export const ReadingListContext = createContext<
@@ -41,11 +49,39 @@ export const ReadingListContextProvider = ({
     );
   };
 
-  const updateStatus = (key: string, status: "reading" | "finished" | null) => {
+  const updateStatus = async (
+    key: string,
+    status: "reading" | "finished" | null
+  ): Promise<"missing_pages" | void> => {
     setReadingList((prev) =>
       prev.map((b) =>
         b.key === key ? { ...b, status: status || undefined } : b
       )
+    );
+
+    if (status === "finished") {
+      const book = readingList.find((b) => b.key === key);
+      console.log("book.ReadingListItem: ", book);
+
+      if (book && book.number_of_pages == null && book.cover_edition_key) {
+        const pages = await fetchBookEditionDetails(book.cover_edition_key);
+        if (pages) {
+          setReadingList((prev) =>
+            prev.map((b) =>
+              b.key === key ? { ...b, number_of_pages: pages } : b
+            )
+          );
+        } else {
+          // 🔁 Nytt: returnera en signal att sidor saknas
+          return "missing_pages";
+        }
+      }
+    }
+  };
+
+  const updatePages = (key: string, pages: number) => {
+    setReadingList((prev) =>
+      prev.map((b) => (b.key === key ? { ...b, number_of_pages: pages } : b))
     );
   };
 
@@ -57,6 +93,7 @@ export const ReadingListContextProvider = ({
         removeFromReadingList,
         updateRating,
         updateStatus,
+        updatePages,
       }}
     >
       {children}

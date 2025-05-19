@@ -2,10 +2,14 @@
 import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 import { LoadingContext } from "../contexts/LoadingContext";
-import { fetchBookDetails, WorkDetails } from "../services/fetchBookDetails";
-import { Doc, ExtendedDoc } from "../types/OpenLibrarySearchResponse";
+import {
+  Doc,
+  ExtendedDoc,
+  WorkDetails,
+} from "../types/OpenLibrarySearchResponse";
 import { mapDocToWorkDetails } from "../utils/mapDocToWorkDetails";
 import { useReadingList } from "./useReadingList";
+import { fetchBookDetails } from "../services/fetchBookDetails";
 
 export function useBookDetails(bookId: string | undefined) {
   const cleanBookId = (bookId || "").trim();
@@ -23,6 +27,7 @@ export function useBookDetails(bookId: string | undefined) {
     removeFromReadingList,
     updateRating,
     updateStatus,
+    updatePages,
   } = useReadingList();
 
   useEffect(() => {
@@ -114,5 +119,6 @@ export function useBookDetails(bookId: string | undefined) {
     status,
     updateRating,
     updateStatus,
+    updatePages,
   };
 }

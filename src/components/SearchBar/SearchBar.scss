@@ -1,5 +1,6 @@
 @use "../../styles/variables" as var;
 @use "../../styles/mixins" as mixins;
+@use "../../styles/breakpoints" as *;
 
 .searchBarWrapper {
   /* border-radius: var.$searchBarRadius; */
@@ -19,6 +20,16 @@
         var.$searchBarBorderColor,
         var.$searchBarBorderColor
       );
+      @include respond-to(sm) {
+        @include mixins.searchBarBase(
+          var.$searchBarWidth/4,
+          0,
+          var.$searchBarBorderColor,
+          none,
+          var.$searchBarBorderColor,
+          var.$searchBarBorderColor
+        );
+      }
     }
     label {
       @include mixins.searchBarBase(
@@ -29,6 +40,17 @@
         none,
         none
       );
+      @include respond-to(sm) {
+        @include mixins.searchBarBase(
+          var.$searchBarWidth/1.5,
+          0,
+          none,
+          none,
+          none,
+          none
+        );
+      }
+
       input {
         @include mixins.searchBarBase(
           var.$searchBarWidth,
@@ -38,6 +60,17 @@
           var.$searchBarBorderColor,
           none
         );
+
+        @include respond-to(sm) {
+          @include mixins.searchBarBase(
+            var.$searchBarWidth/1.5,
+            0 var.$searchBarPaddingLeftRight,
+            var.$searchBarBorderColor,
+            none,
+            var.$searchBarBorderColor,
+            none
+          );
+        }
       }
     }
     button {
