@@ -63,6 +63,7 @@
 ### ⚙️ **Övriga features**
 
 - 💅 Alla komponenter är stylade med SCSS-moduler.
+- 📱 Responsiv design implementerad med SCSS-mixins och breakpoints.
 - 🧠 Koden använder strikt typning med TypeScript överallt.
 - 🔁 Utility-funktioner används för att extrahera årtal, mappa data, och identifiera typer.
 - 🔄 Återanvändbara komponenter som `BookCard`, `BookMetadata`, `ReadingStatusIndicator`.
