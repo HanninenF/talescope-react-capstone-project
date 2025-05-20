@@ -1,13 +1,15 @@
 @use "../../styles/variables" as var;
 @use "../../styles/breakpoints" as *;
 .detailedBookCard {
-  border: 2px solid red;
+  border: 2px solid hsl(29, 47%, 56%);
+  border-radius: 5px;
   min-width: 30rem;
   height: 30rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 1rem;
+  background: hsl(28.42, 18.1%, 20.59%);
 
   .detailedBookCard__midSection {
     position: relative;
