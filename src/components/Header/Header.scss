@@ -22,8 +22,26 @@
       list-style: none;
       li {
         padding: 0 var.$spacingMd;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+          font-weight: bolder;
+        }
+
         a {
           text-decoration: none;
+          transition:
+            color 0.3s ease,
+            transform 0.2s ease;
+
+          &:focus {
+            &:focus {
+              outline: none;
+              color: var.$colorAccent;
+              font-weight: bolder;
+            }
+          }
         }
       }
     }

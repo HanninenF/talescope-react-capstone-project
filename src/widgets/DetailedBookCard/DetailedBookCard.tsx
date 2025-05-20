@@ -140,3 +140,5 @@ export default function DetailedBookCard() {
     </>
   );
 }
+
+//TODO: fixa animationer, gå igenom alla filer för att se att inga squglly lines finns

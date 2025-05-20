@@ -8,7 +8,11 @@
   min-width: var.$spacingXxxxxl;
   padding: 0 var.$spacingSm var.$spacingSm 0;
 
+  transition: transform 0.2s ease-in-out;
   border: var.$bookCardBorderColor;
+  &:hover {
+    transform: scale(1.05);
+  }
   .BookCard {
     position: relative;
     @include mixins.cardContainerBase;
