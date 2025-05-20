@@ -71,4 +71,7 @@
 - 🔧 Projektspecifik proxy-konfiguration i `vite.config.ts` för att undvika CORS-problem.
 - 📁 Snygg och tydlig mappstruktur med `components`, `widgets`, `hooks`, `contexts`, `services`, `routes`, `config`, `utils`.
 
+* ✨ Hover animations on book cards and header menu items for enhanced interactivity.
+* ✨ Smooth transition effects for header and card elements for better user experience.
+
 ---
